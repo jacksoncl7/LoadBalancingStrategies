@@ -1,0 +1,42 @@
+services:
+  webapp1:
+    image: load-balance-strategies:0.0.1
+    build:
+      context: ./webapp
+    ports:
+     - "5003:8080"
+    expose:
+      - 5003
+
+  webapp2:
+    image: load-balance-strategies:0.0.1
+    build:
+      context: ./webapp
+    ports:
+      - "5001:8080"
+    expose:
+      - 5001
+
+  webapp3:
+    image: load-balance-strategies:0.0.1
+    build:
+      context: ./webapp
+    ports:
+      - "5002:8080"
+    expose:
+      - 5002
+
+  balancer:
+    image: nginx
+    ports:
+      - "80:8080"
+    depends_on:
+      - webapp1
+      - webapp2
+      - webapp3
+    links:
+      - webapp1
+      - webapp2
+      - webapp3
+    volumes:
+      - ./nginx_configs/configs/:/etc/nginx/
