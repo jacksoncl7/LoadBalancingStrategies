@@ -1,2 +1,2 @@
 webapp/build/*
-nginx/configs/*
+balancer/configs/*
