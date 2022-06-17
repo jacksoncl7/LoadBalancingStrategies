@@ -1,11 +1,14 @@
 up-round-robin:
-	cp nginx_configs/round_robin.config nginx_configs/configs/nginx.config
-	docker compose up
+	cp balancer/round_robin.conf balancer/configs/
+	mv balancer/configs/round_robin.conf balancer/configs/nginx.conf
+	docker compose up --build --remove-orphans
 
 up-least-conn:
-	cp nginx_configs/least_conn.config nginx_configs/configs/nginx.config
+	cp balancer/least_conn.conf balancer/configs/
+	mv balancer/configs/least_conn.conf balancer/configs/nginx.conf
 	docker compose up
 
 up-ip-hash:
-	cp nginx_configs/ip_hash.config nginx_configs/configs/nginx.config
+	cp balancer/ip_hash.conf balancer/configs/
+	mv balancer/configs/ip_hash.conf balancer/configs/nginx.conf
 	docker compose up
