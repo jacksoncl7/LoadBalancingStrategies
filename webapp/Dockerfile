@@ -1,6 +1,7 @@
-FROM golang:1.18-alpine
+FROM golang:1.17-alpine
+
 WORKDIR /build
 COPY . .
-#RUN CGO_ENABLED=0 GOARCH=amd64  go build -ldflags "-s -w -extldflags '-static'" -o ./app
+EXPOSE 8080
 
 ENTRYPOINT ["go", "run", "main.go"]

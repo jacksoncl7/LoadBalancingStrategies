@@ -1,0 +1,18 @@
+# docker-compose
+version: '3'
+
+services:
+  webapp:
+    image: load-balance-strategies:0.0.1
+    build:
+      context: ./webapp
+
+  balancer:
+    # image: nginx:1.16.0-alpine
+    image: nginx
+    ports:
+      - "8888:80"
+    depends_on:
+      - webapp
+    volumes:
+      - ./balancer/configs/nginx.conf:/etc/nginx/nginx.conf:ro
