@@ -9,9 +9,9 @@ Testing load balancer algorithms with non-statically response apps
 
 # Running Load Balancer
 
-1. Build webapp docker image.
+1. Build `webapp` docker image.
 2. Run `make up-<<load-balancing-algorithm>>`.
-3. Scale the webapp service.
+3. Scale the `webapp` service.
 
 Example:
 ```shell
