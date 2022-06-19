@@ -10,6 +10,8 @@ services:
   balancer:
     # image: nginx:1.16.0-alpine
     image: nginx
+    extra_hosts:
+      - kubernetes.docker.internal:127.0.0.1
     ports:
       - "8888:80"
     depends_on:
