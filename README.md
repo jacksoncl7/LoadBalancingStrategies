@@ -3,16 +3,17 @@ Testing load balancer algorithms with non-statically response apps
 
 # Running Load Balancer
 
-1 - Build webapp docker image
-2 - Run `make up-<<load-balancing-algorithm>>`
-3 - Scale the webapp service
+1. Build `webapp` docker image.
+2. Run `make up-<<load-balancing-algorithm>>`.
+3. Scale the `webapp` service.
 
 Example:
 ```shell
 $> docker build webapp -t load-balance-strategies:x.x.x // Build webapp image
-$> make up-least-conn // Run Nginx and 1 instance of webapp
+$> make up-least-conn // Run Nginx (using least conn algorithm) and 1 instance of webapp
 $> docker compose up --scale webapp=N // relaunching services, one balancer but with N webapp instances
 ```
+
 
 # Build webapp
 
@@ -31,3 +32,9 @@ checking response
 ```shell
 $> curl localhots:8080 # its respond a random number
 ```
+## Ports
+
+|service | port |
+| ------ | ---- |
+|webapp | 8080 |
+|load balancer | 8888 |
