@@ -13,5 +13,8 @@ up-ip-hash:
 	mv balancer/configs/ip_hash.conf balancer/configs/nginx.conf
 	docker compose up -d --build --remove-orphans
 
+run-load-test-to-csv:
+	k6 run --out csv=loadtest/result/result-$(date +%F-%T).csv loadtest/first_scenario.js
+
 down:
 	docker compose down

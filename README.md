@@ -7,6 +7,13 @@ Testing load balancer algorithms with non-statically response apps
 2. Docker Compose
 3. k6
 
+
+# Running Load Balancer Tests
+
+```shell
+$> make run-load-test-to-csv
+```
+
 # Running Load Balancer
 
 1. Build `webapp` docker image.
@@ -19,7 +26,6 @@ $> docker build webapp -t load-balance-strategies:x.x.x // Build webapp image
 $> make up-least-conn // Run Nginx (using least conn algorithm) and 1 instance of webapp
 $> docker compose up --scale webapp=N // relaunching services, one balancer but with N webapp instances
 ```
-
 
 # Build webapp
 
