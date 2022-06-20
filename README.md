@@ -7,21 +7,6 @@ Testing load balancer algorithms with non-statically response apps
 2. Docker Compose
 3. k6
 
-# Setup
-
-For Unix-Like Operating systems, append to `/etc/hots` file, this line:
-
-```shell
-127.0.0.1 kubernetes.docker.internal
-```
-
-# Running Load Balancer Tests
-
-```shell
-$>
-```
-
-
 # Running Load Balancer
 
 1. Build `webapp` docker image.
