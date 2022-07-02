@@ -6,7 +6,7 @@ Testing load balancer algorithms with non-statically response apps
 1. Docker
 2. Docker Compose
 3. k6
-
+4. GNU Make
 
 # Running Load Balancer Tests
 
